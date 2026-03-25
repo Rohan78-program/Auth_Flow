@@ -1,0 +1,356 @@
+.user-dashboard-shell {
+    min-height: 100vh;
+    padding: 24px;
+    background:
+        radial-gradient(circle at top left, rgba(28, 117, 188, 0.18), transparent 32%),
+        radial-gradient(circle at right, rgba(10, 102, 194, 0.12), transparent 28%),
+        linear-gradient(135deg, #f8fbff 0%, #eef4ff 56%, #f4f7fb 100%);
+}
+
+.user-dashboard-navbar {
+    max-width: 1200px;
+    margin: 0 auto 28px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(27, 43, 68, 0.08);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(19, 62, 135, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+.user-dashboard-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #14345c;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.user-dashboard-brand-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: #fff;
+    padding: 6px;
+    box-shadow: 0 10px 22px rgba(20, 52, 92, 0.11);
+}
+
+.user-dashboard-navlinks {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.user-dashboard-navlinks a {
+    color: #0f4c81;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 999px;
+    transition: all 0.25s ease;
+}
+
+.user-dashboard-navlinks a:hover {
+    background: rgba(15, 76, 129, 0.08);
+}
+
+.user-dashboard-signout-btn {
+    background: linear-gradient(135deg, #0f4c81, #1976d2);
+    color: #ffffff !important;
+}
+
+.user-dashboard-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 24px;
+}
+
+.user-hero-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: 24px;
+}
+
+.user-hero-copy,
+.user-identity-card,
+.user-stat-card,
+.user-panel {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(19, 62, 135, 0.08);
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(23, 34, 58, 0.08);
+}
+
+.user-hero-copy {
+    padding: 48px;
+}
+
+.user-badge {
+    display: inline-flex;
+    margin-bottom: 18px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(25, 118, 210, 0.12);
+    color: #0f4c81;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.user-hero-copy h1 {
+    margin: 0 0 16px;
+    color: #14345c;
+    font-size: clamp(2.2rem, 3.8vw, 3.8rem);
+    line-height: 1.08;
+}
+
+.user-hero-copy p,
+.user-identity-card p,
+.user-stat-card p,
+.user-panel-header p,
+.user-activity-item p,
+.user-shortcut-card p {
+    color: #5a738f;
+    line-height: 1.75;
+}
+
+.user-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 26px;
+}
+
+.user-primary-btn,
+.user-secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 22px;
+    border-radius: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.user-primary-btn {
+    background: linear-gradient(135deg, #0f4c81, #1976d2);
+    color: #ffffff;
+    box-shadow: 0 14px 28px rgba(25, 118, 210, 0.2);
+}
+
+.user-secondary-btn {
+    background: #ffffff;
+    border: 1px solid rgba(15, 76, 129, 0.16);
+    color: #0f4c81;
+}
+
+.user-primary-btn:hover,
+.user-secondary-btn:hover {
+    transform: translateY(-2px);
+}
+
+.user-identity-card {
+    padding: 34px;
+    background: linear-gradient(180deg, #14345c 0%, #1e4e86 100%);
+}
+
+.user-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.user-identity-card h2,
+.user-identity-card p,
+.user-status-list span,
+.user-status-list strong {
+    color: #ffffff;
+}
+
+.user-status-list {
+    margin-top: 24px;
+    display: grid;
+    gap: 14px;
+}
+
+.user-status-list div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.user-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.user-stat-card {
+    padding: 24px;
+}
+
+.user-stat-card span {
+    color: #1976d2;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.user-stat-card h3 {
+    margin: 12px 0 10px;
+    color: #14345c;
+    font-size: 2rem;
+}
+
+.user-dashboard-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 22px;
+}
+
+.user-panel {
+    padding: 28px;
+}
+
+.user-panel-header h2 {
+    margin: 0 0 6px;
+    color: #14345c;
+}
+
+.user-panel-header p {
+    margin: 0 0 22px;
+}
+
+.user-activity-list {
+    display: grid;
+    gap: 16px;
+}
+
+.user-activity-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 18px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(12, 73, 127, 0.05), rgba(25, 118, 210, 0.02));
+    border: 1px solid rgba(25, 118, 210, 0.08);
+}
+
+.user-activity-item h3,
+.user-shortcut-card h3 {
+    margin: 0 0 6px;
+    color: #14345c;
+}
+
+.user-activity-item p,
+.user-shortcut-card p {
+    margin: 0;
+}
+
+.user-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.user-status.success {
+    background: rgba(76, 175, 80, 0.14);
+    color: #2e7d32;
+}
+
+.user-status.info {
+    background: rgba(25, 118, 210, 0.14);
+    color: #0f4c81;
+}
+
+.user-status.neutral {
+    background: rgba(90, 115, 143, 0.14);
+    color: #48627f;
+}
+
+.user-shortcut-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.user-shortcut-card {
+    padding: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(241, 247, 255, 0.95));
+    border: 1px solid rgba(20, 52, 92, 0.08);
+    box-shadow: 0 14px 28px rgba(21, 40, 73, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.user-shortcut-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 34px rgba(21, 40, 73, 0.08);
+}
+
+@media (max-width: 991px) {
+    .user-hero-panel,
+    .user-stats-grid,
+    .user-dashboard-content,
+    .user-shortcut-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .user-hero-copy {
+        padding: 36px;
+    }
+}
+
+@media (max-width: 576px) {
+    .user-dashboard-shell {
+        padding: 12px;
+    }
+
+    .user-dashboard-navbar {
+        padding: 14px 16px;
+    }
+
+    .user-dashboard-navlinks {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .user-hero-copy,
+    .user-identity-card,
+    .user-stat-card,
+    .user-panel {
+        padding: 24px;
+        border-radius: 22px;
+    }
+
+    .user-hero-actions,
+    .user-activity-item {
+        flex-direction: column;
+    }
+}

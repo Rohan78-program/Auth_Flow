@@ -1,0 +1,346 @@
+.register-shell {
+    overflow: hidden;
+}
+
+.register-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(380px, 0.98fr);
+    gap: 34px;
+    align-items: stretch;
+}
+
+.register-copy-panel,
+.register-form-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(19, 62, 135, 0.08);
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(23, 34, 58, 0.08);
+}
+
+.register-copy-panel {
+    padding: 54px;
+}
+
+.register-copy-panel h1 {
+    margin-bottom: 18px;
+    color: #14345c;
+    font-size: clamp(2.35rem, 3.8vw, 4.05rem);
+    line-height: 1.08;
+}
+
+.register-copy-panel p {
+    color: #48627f;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.register-points {
+    margin-top: 28px;
+    display: grid;
+    gap: 16px;
+}
+
+.register-point {
+    padding: 20px 22px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(12, 73, 127, 0.06), rgba(25, 118, 210, 0.02));
+    border: 1px solid rgba(25, 118, 210, 0.12);
+}
+
+.register-point h3 {
+    margin-bottom: 8px;
+    color: #14345c;
+    font-size: 1.05rem;
+}
+
+.register-point p {
+    margin: 0;
+    font-size: 0.96rem;
+}
+
+.register-form-panel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-card-glow {
+    position: absolute;
+    inset: 8% 12%;
+    background: radial-gradient(circle, rgba(25, 118, 210, 0.18), transparent 65%);
+    filter: blur(24px);
+    pointer-events: none;
+}
+
+.register-form-card {
+    width: 100%;
+    padding: 70px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(244, 249, 255, 0.94));
+    backdrop-filter: blur(12px);
+}
+
+.register-form-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.register-kicker {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #1976d2;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.register-form-card h2 {
+    margin-bottom: 12px;
+    color: #14345c;
+    font-size: 2rem;
+}
+
+.register-intro {
+    margin-bottom: 0;
+    color: #5a738f;
+    line-height: 1.7;
+}
+
+.register-trust-box {
+    min-width: 210px;
+    display: grid;
+    gap: 8px;
+    padding: 18px 20px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(15, 76, 129, 0.1), rgba(25, 118, 210, 0.04));
+    border: 1px solid rgba(25, 118, 210, 0.14);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.register-trust-box strong {
+    color: #14345c;
+    font-size: 0.98rem;
+}
+
+.register-trust-box span {
+    color: #5a738f;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.register-form {
+    display: grid;
+    gap: 32px;
+}
+
+.register-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 50px;
+}
+
+.register-field {
+    display: grid;
+    gap: 20px;
+}
+
+.register-field-wide {
+    margin-top: 2px;
+}
+
+.register-field label {
+    color: #14345c;
+    font-weight: 600;
+}
+
+.register-field small {
+    color: #6f839a;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    margin-top: 2px;
+}
+
+.register-field input,
+.register-field textarea {
+    width: 100%;
+    padding: 17px 18px;
+    border: 1px solid rgba(20, 52, 92, 0.1);
+    border-radius: 18px;
+    background: linear-gradient(180deg, #fbfdff, #f3f8ff);
+    color: #14345c;
+    outline: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.register-field textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+.register-field input[type="file"] {
+    padding: 12px 14px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+}
+
+.register-field input[type="file"]::file-selector-button {
+    padding: 8px 14px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0f4c81, #1976d2);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.register-field input[type="file"]::file-selector-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(25, 118, 210, 0.3);
+}
+
+.register-upload-card {
+    display: grid;
+    gap: 18px;
+    padding: 22px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(12, 73, 127, 0.06), rgba(25, 118, 210, 0.025));
+    border: 1px dashed rgba(25, 118, 210, 0.3);
+}
+
+.register-upload-copy label {
+    display: inline-block;
+    margin-bottom: 6px;
+    color: #14345c;
+    font-weight: 600;
+}
+
+.register-upload-copy p {
+    margin: 0;
+    color: #69819b;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.register-upload-card input[type="file"] {
+    width: 100%;
+    padding: 16px 18px;
+    border: 1px solid rgba(20, 52, 92, 0.1);
+    border-radius: 18px;
+    background: linear-gradient(180deg, #fbfdff, #f3f8ff);
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    color: #14345c;
+    cursor: pointer;
+}
+
+.register-upload-card input[type="file"]::file-selector-button {
+    padding: 8px 16px;
+    margin-right: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0f4c81, #1976d2);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.register-upload-card input[type="file"]::file-selector-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(25, 118, 210, 0.3);
+}
+
+.register-field input:focus,
+.register-field textarea:focus {
+    border-color: rgba(25, 118, 210, 0.55);
+    box-shadow: 0 0 0 5px rgba(25, 118, 210, 0.12);
+    background: #ffffff;
+    transform: translateY(-2px);
+}
+
+.register-submit-btn {
+    margin-top: 6px;
+    padding: 17px 20px;
+    border: 0;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #0f4c81, #1976d2);
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: 0 18px 32px rgba(25, 118, 210, 0.22);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.register-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 36px rgba(25, 118, 210, 0.24);
+}
+
+.register-links {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(20, 52, 92, 0.08);
+}
+
+.register-links a {
+    color: #0f4c81;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.register-links a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 991px) {
+    .register-layout,
+    .register-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .register-copy-panel {
+        padding: 36px;
+    }
+
+    .register-form-header {
+        flex-direction: column;
+    }
+
+    .register-trust-box {
+        min-width: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .register-copy-panel,
+    .register-form-card {
+        padding: 24px;
+        border-radius: 22px;
+    }
+
+    .register-grid {
+        gap: 18px;
+    }
+
+    .register-links {
+        flex-direction: column;
+    }
+}
