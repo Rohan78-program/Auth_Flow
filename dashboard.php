@@ -1,3 +1,34 @@
+<?php
+session_start();
+date_default_timezone_set('Asia/Kolkata');
+
+include 'connection/connect.php';
+
+if (!isset($_SESSION['id'])) {
+    header("Location:index.php");
+    exit();
+}
+
+//get data from data base
+$id = $_SESSION['id'];
+$stmt = $conn->prepare("SELECT * FROM users WHERE id= ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+$data = $result->fetch_assoc();
+
+//geting avtar
+$name = $data['name'];
+
+$words = explode(" ", $name);
+$avtar = '';
+
+foreach ($words as $word) {
+    $avtar .= strtoupper($word[0]);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,13 +44,12 @@
     <div class="user-dashboard-shell">
         <header class="user-dashboard-navbar">
             <a class="user-dashboard-brand" href="index.php" aria-label="AuthFlow home">
-                <img src="logo.png" alt="AuthFlow logo" class="user-dashboard-brand-logo">
+                <img src="img/logo.png" alt="AuthFlow logo" class="user-dashboard-brand-logo">
                 <span>AuthFlow</span>
             </a>
 
             <nav class="user-dashboard-navlinks">
                 <a href="profile.php">Profile</a>
-                <a href="otp.php">OTP</a>
                 <a href="logout.php" class="user-dashboard-signout-btn">Sign Out</a>
             </nav>
         </header>
@@ -41,8 +71,8 @@
                 </div>
 
                 <div class="user-identity-card">
-                    <div class="user-avatar">RR</div>
-                    <h2>Rohan Raj</h2>
+                    <div class="user-avatar"><?= $avtar ?></div>
+                    <h2><?= $name ?> </h2>
                     <p>Verified member with secure access enabled.</p>
                     <div class="user-status-list">
                         <div>
@@ -149,6 +179,7 @@
                 </div>
             </section>
         </main>
+        <?php include 'footer.php' ?>
     </div>
 </body>
 

@@ -13,7 +13,7 @@
     <div class="admin-dashboard-shell">
         <header class="admin-dashboard-navbar">
             <a class="admin-dashboard-brand" href="index.php" aria-label="AuthFlow home">
-                <img src="logo.png" alt="AuthFlow logo" class="admin-dashboard-brand-logo">
+                <img src="img/logo.png" alt="AuthFlow logo" class="admin-dashboard-brand-logo">
                 <span>AuthFlow Admin</span>
             </a>
 
@@ -161,6 +161,7 @@
                 </div>
             </section>
         </main>
+        <?php include 'footer.php' ?>
     </div>
 </body>
 

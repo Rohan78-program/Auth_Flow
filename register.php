@@ -1,3 +1,9 @@
+<?php
+include 'components/common.php';
+
+date_default_timezone_set('Asia/Kolkata');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,11 +20,11 @@
     <div class="landing-shell register-shell">
         <header class="landing-navbar">
             <a class="landing-brand" href="index.php" aria-label="AuthFlow home">
-                <img src="logo.png" alt="AuthFlow logo" class="landing-brand-logo">
+                <img src="img/logo.png" alt="AuthFlow logo" class="landing-brand-logo">
                 <span>AuthFlow</span>
             </a>
 
-            <a href="login.php" class="landing-signin-btn">Sign In</a>
+            <a href="login.php" class="landing-btn">Sign In</a>
         </header>
 
         <main class="register-layout">
@@ -64,17 +70,19 @@
                         </div>
                     </div>
 
-                    <form method="post" action="#" class="register-form" enctype="multipart/form-data">
+                    <form method="POST" action="controller/registration_process.php" class="register-form" enctype="multipart/form-data">
                         <div class="register-grid">
                             <div class="register-field">
                                 <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                                <div class="invalid-feedback"></div>
                                 <small>Use your real name for a more trusted profile.</small>
                             </div>
 
                             <div class="register-field">
                                 <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+                                <div class="invalid-feedback"></div>
                                 <small>This email will be used for login and account communication.</small>
                             </div>
                         </div>
@@ -82,20 +90,23 @@
                         <div class="register-grid">
                             <div class="register-field">
                                 <label for="password">Password</label>
-                                <input type="password" id="password" name="password" placeholder="Create a password" required>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Create a password" required>
+                                <div class="invalid-feedback"></div>
                                 <small>Choose a strong password with letters, numbers, and symbols.</small>
                             </div>
 
                             <div class="register-field">
                                 <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter phone number" required>
+                                <div class="invalid-feedback"></div>
                                 <small>Add an active number for future verification or support.</small>
                             </div>
                         </div>
 
                         <div class="register-field register-field-wide">
                             <label for="address">Address</label>
-                            <textarea id="address" name="address" rows="4" placeholder="Enter your address" required></textarea>
+                            <textarea id="address" class="form-control" name="address" rows="4" placeholder="Enter your address" required></textarea>
+                            <div class="invalid-feedback"></div>
                             <small>Your address helps build a more complete account profile.</small>
                         </div>
 
@@ -104,7 +115,8 @@
                                 <label for="photo">Profile Photo</label>
                                 <p>Upload a clear photo to personalize your profile and dashboard.</p>
                             </div>
-                            <input type="file" id="photo" name="photo" accept="image/*">
+                            <input type="file" class="form-control" id="photo" name="photo" accept=".jpg,.jpeg,.png">
+                            <div class="invalid-feedback"></div>
                         </div>
 
                         <button type="submit" class="register-submit-btn">Create Account Securely</button>
@@ -117,7 +129,114 @@
                 </div>
             </section>
         </main>
+
+        <!--Toast-->
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="img/logo.png" class="rounded me-2" alt="logo" width="20" height="20">
+                    <strong class="me-auto">AuthFlow</strong>
+                    <small><?= date('h:i A', time()) ?></small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div id="toast-msg" class="toast-body">
+
+                </div>
+            </div>
+        </div>
+
+        <?php include 'footer.php' ?>
     </div>
+
+
+    <!--using ajax-->
+    <script>
+        const toastEl = document.getElementById('liveToast');
+        const toast = new bootstrap.Toast(toastEl, {
+            delay: 3000
+        });
+
+        $(document).on('submit', '.register-form', function(e) {
+            e.preventDefault();
+            let form = $(this);
+            let url = form.attr('action');
+            let formData = new FormData(this);
+
+            form.find('.invalid-feedback').text('').hide();
+            form.find(".form-control").removeClass('is-invalid');
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: 'json',
+
+                beforeSend: function() {
+                    form.find('button[type="submit"]').prop('disabled', true).html(`
+                                <span class="spinner-border spinner-border-sm"></span> Processing...
+                            `);
+                },
+
+                success: function(response) {
+                    if (response.status) {
+                        $('#toast-msg').text(response.message);
+                        toast.show();
+                        form[0].reset();
+                        setTimeout(() => {
+                            window.location.href = 'login.php';
+                        }, 1500);
+                    } else {
+                        const errors = response.error || {};
+
+                        if (errors.general) {
+                            $('#toast-msg').text(errors.general);
+                            toast.show();
+                        }
+
+                        $.each(errors, (key, msg) => {
+                            if (key === 'general') {
+                                return;
+                            }
+
+                            let input = form.find('[name="' + key + '"]');
+                            if (!input.length) {
+                                return;
+                            }
+
+                            let feedback = input.closest('.register-field, .register-upload-card').find('.invalid-feedback').first();
+
+                            if (input.attr('type') === 'file') {
+                                input.closest('.register-upload-card').addClass('is-invalid');
+                            } else {
+                                input.addClass('is-invalid');
+                            }
+                            feedback.text(msg).show();
+                        });
+                        // Scroll to first error
+                        let firstError = form.find('.is-invalid').first();
+                        if (firstError.length) {
+                            $('html, body').animate({
+                                scrollTop: firstError.offset().top - 100
+                            }, 500);
+                        }
+                    }
+
+                },
+
+                error: function() {
+                    $('#toast-msg').text('An error occurred. Please try again.');
+                    toast.show();
+                },
+
+                complete: function() {
+                    form.find('button[type="submit"]').prop('disabled', false).text('Create Account Securely');
+                }
+            });
+
+        });
+    </script>
 </body>
 
 </html>

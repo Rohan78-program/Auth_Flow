@@ -16,7 +16,7 @@
     padding: 16px 22px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 16px;
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(19, 62, 135, 0.08);
@@ -33,6 +33,7 @@
     font-size: 1.2rem;
     font-weight: 700;
     text-decoration: none;
+    margin-right: auto;
 }
 
 .landing-brand-logo {
@@ -45,7 +46,7 @@
     box-shadow: 0 10px 25px rgba(20, 52, 92, 0.1);
 }
 
-.landing-signin-btn,
+.landing-btn,
 .landing-primary-cta,
 .landing-secondary-cta {
     display: inline-flex;
@@ -55,7 +56,7 @@
     transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
-.landing-signin-btn {
+.landing-btn {
     padding: 12px 22px;
     border-radius: 999px;
     background: linear-gradient(135deg, #0f4c81, #1976d2);
@@ -226,7 +227,7 @@
     align-items: start;
 }
 
-.landing-signin-btn:hover,
+.landing-btn:hover,
 .landing-primary-cta:hover,
 .landing-secondary-cta:hover {
     transform: translateY(-2px);

@@ -13,7 +13,7 @@
     <div class="otp-shell">
         <header class="otp-navbar">
             <a class="otp-brand" href="index.php" aria-label="AuthFlow home">
-                <img src="logo.png" alt="AuthFlow logo" class="otp-brand-logo">
+                <img src="img/logo.png" alt="AuthFlow logo" class="otp-brand-logo">
                 <span>AuthFlow</span>
             </a>
             <a href="login.php" class="otp-back-link">← Back to Login</a>
@@ -131,6 +131,7 @@
                 </div>
             </div>
         </main>
+        <?php include 'footer.php' ?>
     </div>
 </body>
 

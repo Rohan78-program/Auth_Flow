@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,11 +19,18 @@
     <div class="landing-shell">
         <header class="landing-navbar">
             <a class="landing-brand" href="index.php" aria-label="AuthFlow home">
-                <img src="logo.png" alt="AuthFlow logo" class="landing-brand-logo">
+                <img src="img/logo.png" alt="AuthFlow logo" class="landing-brand-logo">
                 <span>AuthFlow</span>
             </a>
 
-            <a href="login.php" class="landing-signin-btn">Login</a>
+            <!--links validation-->
+
+            <?php if (isset($_SESSION['logged_in'])): ?>
+                <a href="dashboard.php" class="landing-btn">Go To Dashboard</a>
+                <a href="logout.php" class="landing-btn">Logout</a>
+            <?php else: ?>
+                <a href="login.php" class="landing-btn">Login</a>
+            <?php endif; ?>
         </header>
 
         <main class="landing-main">
@@ -120,6 +133,7 @@
                 </p>
             </section>
         </main>
+        <?php include 'footer.php' ?>
     </div>
 </body>
 
