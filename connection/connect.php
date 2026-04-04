@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost:3308", "root", "Roh!1052", "auth_flow");
+$conn = new mysqli("localhost:3306", "root", "tHVDROODczNpbkNykXtYaLIFGnKHuFcW", "railway");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
